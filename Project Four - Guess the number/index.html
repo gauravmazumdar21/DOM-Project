@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<style>
+    .home-button{
+        border: 2px solid white ;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: antiquewhite;
+        width: 40px;
+        font-weight: bolder;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .box{
+        border: 2px solid white;
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+
+    #newGame{
+        border: 2px solid black;
+        background-color: white;
+        color: black
+    }
+</style>
+<body style="background-color:#212121; color:#fff;">
+  <nav>
+
+    <h1 style="color: white;">Understanding DOM</h1>
+    <div class="home-button"><a href="../home.html">Home</a></div>
+  </nav>
+    
+    <div id="wrapper">
+      <h1>Number guessing game</h1>
+    <p>Try and guess a random number between 1 and 100.</p>
+    <p>You have 10 attempts to guess the right number.</p>
+    </br>
+        <form class="form">
+            <label2 for="guessField" id="guess">Guess a number</label>
+            <input type="number" id="guessField" class="guessField">
+            <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+        </form>
+
+        <div class="resultParas">
+            <p >Previous Guesses: <span class="guesses"></span></p>
+            <p >Guesses Remaining: <span class="lastResult">10</span></p>
+            <p id="lowOrHi"></p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <!-- <script>
+        const randomNUM = Math.floor(Math.random() * 100 + 1)
+        let guessArr = []
+        console.log(randomNUM)
+        let guessField = document.querySelector("#guessField")
+        let subt = document.querySelector("#subt")
+        let chanceField = document.querySelector(".lastResult")
+        let remainingChance = 10
+        let lastResult = document.querySelector(".guesses")
+        let lowOrHi = document.querySelector("#lowOrHi")
+        let playAgainBut = document.createElement("BUTTON")
+        playAgainBut.id = "playAgainBut"
+
+        playAgainBut.textContent = "Play Again"
+
+        subt.addEventListener("click",function(e){
+            e.preventDefault()
+
+            if(remainingChance === 0){
+                lowOrHi.append(playAgainBut)
+            }
+            else {
+                if(guessField.value > 100){
+                    lowOrHi.innerHTML = "Enter the value less then 100"
+                    guessField.value = ''
+
+                }else if(guessField.value < 0){
+                    lowOrHi.innerHTML = "Enter the positive value"
+                    guessField.value = ''
+
+                }
+                else{
+                    if(randomNUM != guessField.value){
+                        
+                        remainingChance -= 1
+                        chanceField.innerHTML = remainingChance
+                        guessArr.push(guessField.value)
+                        lastResult.innerHTML = guessArr
+                        
+                        if(guessField.value > randomNUM){
+                            lowOrHi.innerHTML = "Hi"
+                            guessField.value = ''
+
+                        }else{
+                            lowOrHi.innerHTML = "Low"
+                            guessField.value = ''
+
+                        }
+                        
+                    }else{
+                        remainingChance -= 1
+                        chanceField.innerHTML = remainingChance
+                        guessArr.push(guessField.value)
+                        lastResult.innerHTML = guessArr
+                        lowOrHi.innerHTML = "You Guess right!"
+                    }
+                }
+            }
+        })
+
+
+
+    </script> -->
+</body>
+</html>

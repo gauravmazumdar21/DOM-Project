@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<style>
+    body{
+        color: white;
+    }
+    .home-button{
+        border: 2px solid white ;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: antiquewhite;
+        width: 40px;
+        font-weight: bolder;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #result{
+        color: black;
+        font-weight: bolder;
+        font-size: larger;
+        margin: 20px;
+        padding: 10px;
+        width: 200px;
+    }
+
+    #details{
+        border: 2px solid black;
+        background-color: white;
+        padding-left: 10px;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+<body style="background-color: #212121;">
+    <h1 style="color: white;">Understanding DOM</h1>
+    <div class="home-button"><a href="../home.html">Home</a></div>
+    
+    <h2>BMI Calculator</h2>
+    <form action="">
+        <input type="number" placeholder="Height in CM" id="height">
+        <input type="number" placeholder="Weight in KG" id="weight">
+        <button>Calculate</button>
+        <div id="result"></div>
+        <div id="details">
+            <h4>BMI Weight Guide</h4>
+            <p>Under Weight = Less then 18.6</p>
+            <p>Normal Ramge = 18.6 to 24.9</p>
+            <p>Overweight = Greater then 24.9</p>
+        </div>
+    </form>
+
+    <script>
+        const form = document.querySelector("form")
+
+        form.addEventListener("submit",function(e){
+            e.preventDefault()
+
+            const height = document.querySelector("#height").value
+            const weight = document.querySelector("#weight").value
+
+            const result = document.querySelector("#result")
+
+            let BMI = (weight / ((height * height)/10000)).toFixed(2)
+
+            if(height === "" || weight === ""){
+                result.innerHTML = "Please enter the value"
+                result.style.borderBottom = "1px solid white";
+                result.style.backgroundColor = "white"
+            }else{
+                if(BMI < 18.6){
+                    result.innerHTML = `<span>${BMI} is Under Weight</span>`;
+                    result.style.borderBottom = "5px solid yellow";
+                    result.style.backgroundColor = "white"
+                }
+                else if(BMI > 18.6 && BMI < 24.9){
+                    result.innerHTML = `<span>${BMI} is Normal Weight</span>`
+                    result.style.borderBottom = "5px solid green";
+                    result.style.backgroundColor = "white"
+
+                }
+                else if(BMI > 24.9){
+                    result.innerHTML = `<span>${BMI} is Overweight</span>`
+                    result.style.borderBottom = "5px solid red";
+                    result.style.backgroundColor = "white"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
