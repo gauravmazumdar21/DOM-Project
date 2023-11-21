@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Key</title>
+</head>
+<style>
+    .home-button{
+        border: 2px solid white ;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: antiquewhite;
+        width: 40px;
+        font-weight: bolder;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h2{
+        border: 2px solid black;
+        background-color: white;
+        padding: 10px;
+    }
+    table{
+        background-color: white;
+        text-align: center;
+        border: 1px solid black;
+    }
+    
+</style>
+<body style="background-color: #212121;">
+    <h1 style="color: white;">Understanding DOM</h1>
+    <div class="home-button"><a href="../index.html">Home</a></div>
+
+    <h2>Press the key and watch the keycode</h2>
+    <div id="valueTable"></div>
+    
+    <script>
+    const value= document.querySelector("#valueTable")
+
+    window.addEventListener("keypress", function(e){
+        let key = e.key;
+        let keyCode = e.keyCode;
+        let code = e.code;
+
+        value.innerHTML = `<table style="width:100%">
+            <tr>
+                <th>Key</th>
+                <th>Key Code</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <td>${key === " " ? "Space":e.key}</td>
+                <td>${keyCode}</td>
+                <td>${code}</td>
+            </tr>
+            </table>`
+    })
+    </script>
+</body>
+</html>
