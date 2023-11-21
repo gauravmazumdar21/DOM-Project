@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+</head>
+<style>
+    .home-button{
+        border: 2px solid white ;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: antiquewhite;
+        width: 40px;
+        font-weight: bolder;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h2{
+        border: 2px solid black;
+        background-color: white;
+        padding: 10px;
+    }
+
+</style>
+<body style="background-color: #212121;">
+    <h1 style="color: white;">Understanding DOM</h1>
+    <div class="home-button"><a href="../index.html">Home</a></div>
+
+    <h2>Start should change the backgroud color every second</h2>
+    
+    <button id="startBut"> Start </button>
+    <button id="stopBut"> Stop </button>
+    <script>
+        const body = document.querySelector("body")
+        const startButton = document.querySelector("#startBut").addEventListener('click', startChanging)
+        const stopButton = document.querySelector("#stopBut").addEventListener('click', stopChanging)
+       
+        let changeBGColor;        
+        function startChanging(){
+            if(!changeBGColor){
+                changeBGColor = setInterval(randomColor,1000)
+            }
+
+            function randomColor(){
+                var randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+                body.style.backgroundColor = `#${randomNumber}`
+            }
+        }
+
+        function stopChanging(){
+            clearInterval(changeBGColor)
+            changeBGColor = null;
+            console.log(body.style.backgroundColor) //get the color rgb value
+        }
+
+</script>
+</body>
+</html>
